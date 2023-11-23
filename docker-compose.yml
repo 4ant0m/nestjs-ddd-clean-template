@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    ports:
+      - '3000:3000'
+    environment:
+      DATABASE_URL: postgresql://postgres:postgres@db:5432/postgres
+    depends_on:
+      - db
+    entrypoint: ["wait-for-it.sh" ,"db:5432", "-t", "20", "--"]
+    command: ["npm", "run", "migrate", 'npm', 'run', 'start']
+
+  db:
+    image: postgres:13
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

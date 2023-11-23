@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDirs": [
+      "./src"
+    ],
+    "baseUrl": "./",
+    "paths": {
+      "@user/*": ["src/modules/user/*"],
+      "@role/*": ["src/modules/role/*"]
+    },
+    "target": "es2020",
+    "module": "commonjs",
+    "lib": [
+     "es2020"
+    ],
+    "types": [
+      "reflect-metadata",
+      "jest",
+      "node"
+    ],
+    "alwaysStrict": true,
+    "strict": true,
+    "strictPropertyInitialization": false,
+    "allowJs": false,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "removeComments": true,
+    "sourceMap": true
+  },
+  "include": [
+    "./src/**/*.ts"
+  ]
+}
